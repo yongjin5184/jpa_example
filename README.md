@@ -3,5 +3,5 @@
 * Spring boot
 * JPA
 * Gradle
-* PostgresSQL
+* PostgreSQL
 * Junit 
