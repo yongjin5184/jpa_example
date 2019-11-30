@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @Getter
 public class PostId implements Serializable {
     @Column(name = "post_id")
-    @GeneratedValue
-    @EmbeddedId
+    @EmbeddedId @GeneratedValue
     private Long id;
 }

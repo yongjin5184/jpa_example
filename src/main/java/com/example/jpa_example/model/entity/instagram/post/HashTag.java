@@ -2,7 +2,6 @@ package com.example.jpa_example.model.entity.instagram.post;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import lombok.AccessLevel;
@@ -18,7 +17,7 @@ public class HashTag {
     private String name;
     private String url;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "post_id")
-    private Post post;
+    private HashTag hashTag;
 }

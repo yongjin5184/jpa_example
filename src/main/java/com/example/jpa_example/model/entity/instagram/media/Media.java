@@ -1,6 +1,7 @@
 package com.example.jpa_example.model.entity.instagram.media;
 
 import com.example.jpa_example.model.entity.instagram.post.Post;
+import java.util.List;
 import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -9,6 +10,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,15 +26,19 @@ public class Media {
     }
 
     @EmbeddedId
-    private Long id;
+    private MediaId id;
 
     @Embedded
     private Url url;
 
+    @Embedded
+    private SortedOrder sortedOrder;
+
     @Enumerated(EnumType.STRING)
     private MediaType mediaType;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "post_id")
-    private Post post;
+    private Media media;
+
 }
